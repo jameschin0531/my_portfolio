@@ -122,13 +122,17 @@ h3 {
   h1.lg-heading,
   h2.lg-heading,
   h3.lg-heading {
-    font-size: 3rem; }
+    font-size: 2.5rem;
+    margin-top: 1rem; }
   h1.sm-heading,
   h2.sm-heading,
   h3.sm-heading {
     margin-bottom: 2rem;
     padding: 0.2rem 1rem;
     background: rgba(56, 56, 56, 0.5); }
+
+p {
+  font-family: "Courier New"; }
 
 a {
   color: #fff;
@@ -161,8 +165,8 @@ main {
 .about-info {
   display: grid;
   grid-gap: 30px;
-  grid-template-areas: "bioimage bio bio" "job1 job2 job3";
-  grid-template-columns: repeat(3, 1fr); }
+  grid-template-areas: "bioimage  bio" "job1 job2 " "edu1 edu1" "edu2 edu2" "edu3 edu3";
+  grid-template-columns: repeat(2, 1fr); }
   .about-info .bio-image {
     grid-area: bioimage;
     margin: auto;
@@ -175,12 +179,20 @@ main {
     grid-area: job1; }
   .about-info .job-2 {
     grid-area: job2; }
-  .about-info .job-3 {
-    grid-area: job3; }
   .about-info .job {
     background: #404040;
-    padding: 0.5rem;
+    padding: 1rem;
     border-bottom: #c94d49 5px solid; }
+  .about-info .edu {
+    background: #404040;
+    padding: 1rem;
+    border-bottom: #c94d49 5px solid; }
+  .about-info .edu-1 {
+    grid-area: edu1; }
+  .about-info .edu-2 {
+    grid-area: edu2; }
+  .about-info .edu-3 {
+    grid-area: edu3; }
 
 .projects {
   display: grid;
@@ -194,6 +206,25 @@ main {
       border-color: #c94d49;
       transition: all 0.5s ease-out; }
 
+.boxes {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem; }
+  .boxes div {
+    font-size: 1rem;
+    border: 3px #fff solid;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 3rem;
+    transition: all 0.5s ease-out; }
+    .boxes div:hover {
+      padding: 0.5rem 1.5rem;
+      background: #c94d49;
+      color: #000; }
+    .boxes div span {
+      color: #fff; }
+
 .btn, .btn-dark, .btn-light {
   display: block;
   padding: 0.5rem 1rem;
@@ -202,6 +233,8 @@ main {
   .btn:hover, .btn-dark:hover, .btn-light:hover {
     background: #c94d49;
     color: #000; }
+    .btn:hover span, .btn-dark:hover span, .btn-light:hover span {
+      color: #000; }
 
 .btn-dark {
   background: black;
@@ -253,7 +286,7 @@ main {
       width: 150px;
       height: 150px; }
   .about-info {
-    grid-template-areas: "bioimage" "bio" "job1" "job2" "job3";
+    grid-template-areas: "bioimage" "bio" "job1" "job2" "edu1" "edu2" "edu3";
     grid-template-columns: 1fr; }
   .projects {
     grid-template-columns: repeat(2, 1fr); } }
