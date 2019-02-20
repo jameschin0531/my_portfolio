@@ -1,39 +1,13 @@
-$primary-color: #444;
-$secondary-color: rgb(73, 201, 131);
-$show-home-image: true;
-$home-image: url(../img/background.jpg);
-$background-opacity: 0.7;
+@import "config";
+@import "menu";
 
-@mixin easeOut {
-  transition: all 0.5s ease-out;
-}
-
-@mixin background {
-  @if $show-home-image {
-    &#bg-img {
-      background: $home-image;
-      background-attachment: fixed;
-      background-size: cover;
-      &:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background: rgba($primary-color, $background-opacity);
-      }
-    }
-  }
-}
 * {
   box-sizing: border-box;
 }
 body {
   @include background;
   background: $primary-color;
-  color: #fff;
+  color: set-text-color($primary-color);
   height: 100%;
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -48,7 +22,7 @@ h3 {
   font-weight: 400;
 
   &.lg-heading {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
   &.sm-heading {
@@ -79,9 +53,10 @@ main {
 
   .icons {
     margin-top: 1rem;
+
     a {
       padding: 0.4rem;
-
+      color: set-text-color($primary-color);
       &:hover {
         color: $secondary-color;
         @include easeOut();
@@ -96,3 +71,93 @@ main {
     }
   }
 }
+
+//about page
+.about-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas:
+    "bioimage bio bio"
+    "job1 job2 job3";
+  grid-template-columns: repeat(3, 1fr);
+
+  .bio-image {
+    grid-area: bioimage;
+    margin: auto;
+    border-radius: 50%;
+    border: $secondary-color 3px solid;
+  }
+
+  .bio {
+    grid-area: bio;
+    font-size: 1.2rem;
+  }
+
+  .job-1 {
+    grid-area: job1;
+  }
+
+  .job-2 {
+    grid-area: job2;
+  }
+
+  .job-3 {
+    grid-area: job3;
+  }
+
+  .job {
+    background: lighten($primary-color, 5);
+    padding: 0.5rem;
+    border-bottom: $secondary-color 5px solid;
+  }
+}
+
+//work page
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+
+  img {
+    width: 100%;
+    border: 3px set-text-color($primary-color) solid;
+
+    &:hover {
+      opacity: 0.5;
+      border-color: $secondary-color;
+      @include easeOut;
+    }
+  }
+}
+
+//button style
+.btn {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+  &:hover {
+    background: $secondary-color;
+    color: set-text-color($secondary-color);
+  }
+}
+
+.btn-dark {
+  @extend .btn;
+  background: darken($primary-color, 50);
+  color: #fff;
+}
+.btn-light {
+  @extend .btn;
+  background: lighten($primary-color, 50);
+  color: #333;
+}
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  background: darken($primary-color, 10);
+  color: set-text-color($primary-color);
+  height: 60px;
+}
+
+@import "mobile";
