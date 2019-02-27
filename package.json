@@ -11,7 +11,9 @@
   "author": "James Chin",
   "license": "ISC",
   "dependencies": {
+    "filenamify-url": "^1.0.0",
     "gh-pages": "^2.0.1",
-    "node-sass": "^4.11.0"
+    "node-sass": "^4.11.0",
+    "strip-url-auth": "^1.0.1"
   }
 }
