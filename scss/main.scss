@@ -206,6 +206,9 @@ main {
   background: darken($primary-color, 10);
   color: set-text-color($primary-color);
   height: 60px;
+  width:100%;
+  bottom:0px;
+  position:fixed;
 }
 
 @import "mobile";
